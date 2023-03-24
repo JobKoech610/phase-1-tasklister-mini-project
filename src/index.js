@@ -9,22 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // handleTask(e.target.new-task-description.value)
 form.reset();
   })
+  function handleTask(todo){
+
+    let list = document.createElement("li");
+    let btn = document.createElement("button");
+    btn.addEventListener("click", handleDelete)
+    btn.textContent= " x "
+    list.textContent=`${todo} `
+    list.appendChild(btn);
+    // console.log(list);
+    
+    document.getElementById("tasks").appendChild(list);
+    
+  }
+  
+  function handleDelete(e){
+  e.target.parentNode.remove()
+  }
 });
 
-function handleTask(todo){
-
-  let list = document.createElement("li");
-  let btn = document.createElement("button");
-  btn.addEventListener("click", handleDelete)
-  btn.textContent= " x "
-  list.textContent=`${todo} `
-  list.appendChild(btn);
-  // console.log(list);
-  
-  document.getElementById("tasks").appendChild(list);
-  
-}
-
-function handleDelete(e){
-e.target.parentNode.remove()
-}
